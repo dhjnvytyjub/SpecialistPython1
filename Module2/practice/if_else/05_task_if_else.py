@@ -6,5 +6,5 @@ year = {
     }
 val = input()
 for key in year:
-    if val in year[key].split():
+    if val in year[key]:
         print(key)
