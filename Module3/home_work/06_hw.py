@@ -1,45 +1,22 @@
-# Данные о товарах на складе хранятся в словаре
-items = [
-    {
-        "name": "Кроссовки",
-        "brand": "adidas",
-        "price": 3440
-    },
-    {
-        "name": "Кепка",
-        "brand": "reebok",
-        "price": 3500
-    },
-    {
-        "name": "Рюкзак",
-        "brand": "reebok",
-        "price": 4800
-    },
-    {
-        "name": "Шорты",
-        "brand": "puma",
-        "price": 2500
-    },
-    {
-        "name": "Шорты",
-        "brand": "adidas",
-        "price": 2750
-    },
-    {
-        "name": "Футболка",
-        "brand": "puma",
-        "price": 1700
-    },
-]
-# Найдите:
-print("Товары на складе представлены брэндами: ")
+m = []
+for item in items:
+    m.append(item['brand'])
+print("Товары на складе представлены брэндами: ", end=' ')
+print(*set(m))
 
-# TODO: your code here
-
-print("На складе больше всего товаров брэнда(ов): ")
-
-# TODO: your code here
-
-print("На складе самый дорогой товар брэнда(ов): ")
-
-# TODO: your code here
+freq_set = dict((i, m.count(i)) for i in m)
+f_s_max = (max(freq_set, key=freq_set.get))
+print("На складе больше всего товаров брэнда(ов): ", end=' ')
+for k in freq_set:
+    if freq_set[k] == freq_set[f_s_max]:
+        print(k, end=' ')
+print()
+        
+m = []
+for item in items:
+    m.append(item['price'])
+max_price = max(m)
+print("На складе самый дорогой товар брэнда(ов): ", end=' ')
+for item in items:
+    if item['price'] == max_price:
+        print(item['brand'], end=' ')
