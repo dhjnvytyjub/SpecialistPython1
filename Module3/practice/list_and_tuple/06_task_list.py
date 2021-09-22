@@ -1,7 +1,2 @@
-# Даны два целых числа.
-# Вывести список всех чисел кратных трем в диапазоне между заданными числами.
-
-first_number = int(input())     # Первое число
-second_number = int(input())    # Второе число
-
-# TODO: your code here
+f_n, s_n = int(input()), int(input())
+print([i for i in range(f_n, s_n + 1) if i % 3 == 0])
