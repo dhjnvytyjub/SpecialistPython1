@@ -1,4 +1,3 @@
-# Дан список из n элементов, заполненный произвольными целыми числами в диапазоне от -10 до 10.
-# Вывести на экран сумму всех положительных элементов.
-
-# TODO: your code here
+import random
+m = [random.randint(-10, 10) for i in range(int(input()))]
+print(sum([i for i in m if i > 0]))
