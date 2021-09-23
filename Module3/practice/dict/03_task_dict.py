@@ -1,4 +1,3 @@
-# Данные о сотрудниках в программе хранятся в словаре
 staff = [
     {
         'name': 'Алексей',
@@ -26,23 +25,31 @@ staff = [
         'salary': 47800
     },
 ]
-# Вычислите:
-print("Имя и Фамилию сотрудника с самой высокой зарплатой:")
+max = 0
+info_max = {}
+for i in staff:
+    if i['salary'] > max:
+        max = i['salary']
+        info_max = i
+print('максимальная ЗП: ', info_max['name'], info_max['surname'])
 
-# TODO: your code here
+min = max
+info_min = {}
+for i in staff:
+    if i['salary'] < min:
+        min = i['salary']
+        info_min = i
+print('минимальная ЗП:', info_min['name'], info_min['surname'])
 
-print("Имя и Фамилию сотрудника с самой низкой зарплатой:")
+from statistics import mean
+print('средняя ЗП:', int(mean([i['salary'] for i in staff])))
 
-# TODO: your code here
+surname = [i['surname'] for i in staff]
+namesake = (len(surname) - len(set(surname))) * 2
+print('количество однофамильцев: ', namesake)
 
-print("Среднеарифметическую зарплату всех сотрудников")
-
-# TODO: your code here
-
-print("Количество однофамильцев в организации")
-
-# TODO: your code here
-
-print("*Список всех сотрудников(Имя и Фамилию) в порядке возрастания их зарплаты")
-
-# TODO: your code here
+sorted_tuple = sorted([i['salary'] for i in staff])
+for i in sorted_tuple:
+    for j in staff:
+        if j['salary'] == i:
+            print(j['name'], j['surname'])
